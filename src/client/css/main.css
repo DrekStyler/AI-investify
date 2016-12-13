@@ -17,7 +17,6 @@ header > * {
   padding: 0px;
   margin: 0px;
   display: inline-block;
-  margin: 0 auto;
   text-align: center;
   padding: 20px;
 }
@@ -27,21 +26,18 @@ header {
   position: relative;
 }
 
-* {
-  border: black solid 1px;
-}
-
 .logo {
   float: left;
   clear: none;
 }
 
 .header_title {
-  width: 30%;
+  width: 25%;
+  font-size: 4rem;
 }
 
 footer {
-  height: 100px;
+  height: 70px;
   text-align: center;
   position: relative;
   padding-bottom: 25px;
@@ -61,22 +57,26 @@ footer {
 }
 
 .start {
-  padding: 100px 0px 30px 0px;
+  padding: 70px 0px 30px 0px;
   font-size: 2rem;
 }
 
 #other_businesses {
   padding: 10px;
-  margin: 100px 0px 100px 0px;
+  margin: 100px 0px 50px 0px;
 }
 
 p {
   display: block;
   line-height: 2;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.header_desc {
+  font-size: 200%;
 }
 
 #consumer_button,#business_button {
-  padding: 10px;
+  padding: 30px;
 }
