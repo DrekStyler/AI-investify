@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/team', function (req, res, next) {
+
   var renderObject = {};
   res.render('team', renderObject);
 });

@@ -36,6 +36,10 @@ header {
   font-size: 4rem;
 }
 
+.header_desc {
+  font-size: 180%;
+}
+
 footer {
   height: 70px;
   text-align: center;
