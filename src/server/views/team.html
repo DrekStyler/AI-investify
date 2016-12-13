@@ -2,5 +2,11 @@
 {% block title %}{% endblock %}
 {% block content %}
 {% include "header.html" %}
-
-{% include "footer.html" %} {% endblock %}
+<main>
+<div class="question_label">Please answer the following questions</div>
+<div id="question_container"></div>
+<div id="input_div"></div>
+<button id="change_question">Begin</button>
+</main>
+{% include "footer.html" %}
+{% endblock %}

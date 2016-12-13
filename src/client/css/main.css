@@ -44,7 +44,10 @@ header {
 footer {
   height: 100px;
   text-align: center;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding-bottom: 25px;
 }
 
@@ -58,7 +61,7 @@ footer {
   display: inline-block;
   position: sticky;
   padding: 10px;
-  font-size: 2.7rem;
+  font-size: 2rem;
 }
 
 .start {
@@ -80,4 +83,9 @@ p {
 
 #consumer_button,#business_button {
   padding: 10px;
+}
+
+.question_container {
+  width: 100%;
+  min-height: 100px;
 }
