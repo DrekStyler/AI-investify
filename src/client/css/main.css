@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
+  width: 100%;
+  height: auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+header > * {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  background-color: gray;
+}
+
+* {
+  border: black solid 1px;
+}
+
+.logo {
+  float: left;
+  clear: none;
+}
+
+.header_title {
+  width: 20%;
+}
+
+footer {
+  background-color: gray;
+}
+
+.tracker {
+  display: inline-block;
 }

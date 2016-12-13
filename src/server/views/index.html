@@ -3,10 +3,13 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-
-  <div class="container">
-    <h1>{{title}}</h1>
-    <h2>The sum is {{sum}}</h2>
-  </div>
-
+{% include "header.html" %}
+<p>Tell us about your company and based on our proprietary algorithm and your online web presence we will give you an investor score and possibly match you with companies looking for businesses like yours!</p>
+<div class"start">Let's get started! Is your business' primarily marketed towards:</div>
+<button id="consumer_button">Consumers</button>
+<button id="business_button">Businesses</button>
+<div>
+  <button id="other_businesses">See Other Businesses</button>
+</div>
+{% include "footer.html" %}
 {% endblock %}
