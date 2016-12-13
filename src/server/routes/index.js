@@ -8,5 +8,9 @@ router.get('/', function (req, res, next) {
   res.render('index', renderObject);
 });
 
+router.get('/team', function (req, res, next) {
+  const renderObject = {};
+  res.render('team', renderObject);
+});
 
 module.exports = router;

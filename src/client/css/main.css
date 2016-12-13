@@ -27,9 +27,6 @@ header {
   position: relative;
 }
 
-* {
-  border: black solid 1px;
-}
 
 .logo {
   float: left;
@@ -38,6 +35,10 @@ header {
 
 .header_title {
   width: 30%;
+}
+
+.header_desc {
+  font-size: 180%;
 }
 
 footer {
