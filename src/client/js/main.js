@@ -18,11 +18,12 @@ $('#change_question').on('click', ()=> {
   $('#question_container').html(`<b>${questions[q_counter]}</b>`);
   $('#input_div').empty();
   answers[q_counter].forEach((a) => {
-    $('#input_div').append(`<button data-val="${a}">${a}</button>`);
+    $('#input_div').append(`<button class="answer_button" data-val="${a}">${a}</button>`);
   });
-  
-  console.log(answers[q_counter]);
-
+  $('.answer_button').on('click', (e) =>{
+    let selected = $(e.target).attr("data-val");
+    localStorage.setItem('selected' + q_counter, selected);
+  });
 
   if (q_counter >= questions.length) {
     $('#question_container').html(`<b>Please Proceed to the Next Section</b>`);
