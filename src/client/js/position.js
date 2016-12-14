@@ -1,23 +1,22 @@
 console.log('position js');
+let searchIndex = "books";
+let keyWords = [];
 
 $(document).ready(function() {
     $('select').material_select();
 });
 
-$('#pos_submit').click(() => {
-  $.ajax({url: ""})
-})
 
-const awsAccessKey = 0;
-const AssociateTag = 0;
-let searchIndex = "books";
-let keyWords = [];
 
-$("button").click(function(){
-    $.ajax({url: "demo_test.txt", success: function(result){
-        $("#div1").html(result);
+
+$("button").click(function(e){
+    e.preventDefault();
+    $.ajax({url: "/amazon", success: function(result){
+        console.log("hit");
     }});
 });
+
+
 
 // http://webservices.amazon.com/onca/xml?
 // Service=AWSECommerceService&

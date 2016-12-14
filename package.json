@@ -9,13 +9,16 @@
     "body-parser": "~1.15.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
+    "crypto-js": "^3.1.9-1",
+    "date-format": "0.0.2",
     "debug": "~2.2.0",
     "dotenv": "^2.0.0",
     "express": "~4.13.4",
     "express-session": "^1.14.0",
     "morgan": "~1.7.0",
     "nunjucks": "^2.4.2",
-    "pg-promise": "5.3.2"
+    "pg-promise": "5.3.2",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
