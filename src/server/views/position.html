@@ -2,8 +2,24 @@
 {% block title %}{% endblock %}
 {% block content %}
 {% include "header.html" %}
+<form class="container">
+  <div class="input-field col s4">
+    <label>What is your product?</label>
+    <input type="text"></input>
+  </div>
+    <label>Is it priced as a luxury good or economically priced?</label>
+  <div class="input-field col s4">
 
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option>Luxury</option>
+      <option>Economy</option>
+    </select>
+  </div>
+</form>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/position.js"></script>
 
 {% include "footer.html" %}
 {% endblock %}

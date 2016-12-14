@@ -13,4 +13,9 @@ router.get('/team', function (req, res, next) {
   res.render('team', renderObject);
 });
 
+router.get('/position', function (req, res, next) {
+  const renderObject = {};
+  res.render('position', renderObject);
+});
+
 module.exports = router;
