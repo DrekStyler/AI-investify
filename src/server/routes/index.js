@@ -17,12 +17,13 @@ console.log(date);
 
 
 router.get('/', function (req, res, next) {
-  const renderObject = {};
+  var renderObject = {};
   res.render('index', renderObject);
 });
 
 router.get('/team', function (req, res, next) {
-  const renderObject = {};
+
+  var renderObject = {};
   res.render('team', renderObject);
 });
 
