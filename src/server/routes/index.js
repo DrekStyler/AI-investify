@@ -2,18 +2,19 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const format = require('date-format');
-
-const AWSAccessId = process.env.AWSAccessId;
-console.log(AWSAccessId);
+const AWSAccessKeyId = process.env.AWSAccessKeyId;
+const AWSSecretKey = process.env.AWSSecretKey;
 const indexController = require('../controllers/index');
-const Crypto = require('crypto-js');
+const crypto = require('crypto-js');
+process.env.TZ = 'Europe/Amsterdam';
 format(new Date());
+let keyWords = "Dog";
+let searchIndex = "Books";
 let date = format('yyyy-MM-ddThh:mm:ssZ', new Date());
-let dateStamp = format('yyyy-MM-dd', new Date());
+let dateStamp = format('yyyyMMdd', new Date());
 let regionName = 'us-west-2';
-let serviceName = 'apigateway';
+let serviceName = 'AWSECommerceService';
 let kSigning = null;
-console.log(date);
 
 
 router.get('/', function (req, res, next) {
@@ -32,26 +33,21 @@ router.get('/position', function (req, res, next) {
 });
 
 router.get('/amazon', function (req, res, next) {
-  console.log(date);
-  function getSignatureKey(Crypto, key, dateStamp, regionName, serviceName) {
-      var kDate = Crypto.HmacSHA256(dateStamp, "AWS4" + key);
-      var kRegion = Crypto.HmacSHA256(regionName, kDate);
-      var kService = Crypto.HmacSHA256(serviceName, kRegion);
-      var kSigning = Crypto.HmacSHA256("aws4_request", kService);
-      console.log("ksgin",kSigning);
-      return kSigning;
-
+  function getSignatureKey(Crypto, AWSSecretKey, dateStamp, regionName, serviceName) {
+    var kDate = Crypto.HmacSHA256(dateStamp, 'AWS4' + AWSSecretKey);
+    var kRegion = Crypto.HmacSHA256(regionName, kDate);
+    var kService = Crypto.HmacSHA256(serviceName, kRegion);
+    var kSigning = Crypto.HmacSHA256('aws4_request', kService);
+    return kSigning;
   }
-  getSignatureKey(Crypto, AWSSecret, dateStamp, regionName, serviceName);
 
-  request(`http://webservices.amazon.com/onca/xml?Service=AWSECommerceService&AWSAccessKeyId=${AWSAccessId}&AssociateTag=${AWSSecret}&Operation=ItemSearch&Keywords=the%20hunger%20games&SearchIndex=Books&Timestamp=${date}&Signature=${kSigning}`, function (error, response, body){
-    console.log(body);
+  const signature = getSignatureKey(crypto, AWSSecretKey, dateStamp, regionName, serviceName);
+  console.log(dateStamp,date);
+  console.log(signature);
+    request(`http://webservices.amazon.com/onca/xml?AWSAccessKeyId=${AWSAccessKeyId}&AssociateTag=derekstyer20-20&Keywords=${keyWords}&Operation=ItemSearch&ResponseGroup=2COffers&SearchIndex=${searchIndex}&Service=AWSECommerceService&Sort=price&Timestamp=${date}&Signature=${signature}`, function (error, response, body) {
+    console.log('body', body);
   });
-  console.log(kSigning);
-  console.log("it hit!");
 });
-
-
 
 // http://webservices.amazon.com/onca/xml?
 // Service=AWSECommerceService&

@@ -1,7 +1,3 @@
-console.log("Im sane");
-
-
-$('#consumer,#business').click(()=>{
-  console.log("clicked");
-  window.location = "/team";
+$('#consumer,#business').click(()=> {
+  window.location = '/team';
 });

@@ -14,33 +14,32 @@
     ['Blue','Red']
   ];
 
-$('#change_question').on('click', ()=> {
+  $('#change_question').on('click', ()=> {
+    if (q_counter === questions.length) {
+      //prepare user to enter next section
+      $('#question_container').html(`<b>Please Proceed to the Next Section</b>`);
+      $('#change_question').text('Next Section');
+      $('#input_div,.question_label').empty();
+      $('#change_question').on('click', ()=> {
+        window.location = '/position';
+      });
+    } else {
+      //populate question and change button text
+      $('#change_question').text('Next Question');
+      $('#question_container').html(`<b>${questions[q_counter]}</b>`);
+      $('#input_div').empty();
 
-  if (q_counter === questions.length) {
-    //prepare user to enter next section
-    $('#question_container').html(`<b>Please Proceed to the Next Section</b>`);
-    $('#change_question').text('Next Section');
-    $('#input_div,.question_label').empty();
-    $('#change_question').on('click', ()=> {
-      window.location = "/position";
-    });
-  } else {
-    //populate question and change button text
-    $('#change_question').text('Next Question');
-    $('#question_container').html(`<b>${questions[q_counter]}</b>`);
-    $('#input_div').empty();
+      //populate answer elements
+      answers[q_counter].forEach((a) => {
+        $('#input_div').append(`<button class="answer_button" data-val="${a}">${a}</button>`);
+      });
 
-    //populate answer elements
-    answers[q_counter].forEach((a) => {
-      $('#input_div').append(`<button class="answer_button" data-val="${a}">${a}</button>`);
-    });
-
-    //save question in localStorage
-    $('.answer_button').on('click', (e) =>{
-      let selected = $(e.target).attr("data-val");
-      localStorage.setItem('selected' + q_counter, selected);
-    });
-    q_counter++;
-  }
-});
+      //save question in localStorage
+      $('.answer_button').on('click', (e) => {
+        let selected = $(e.target).attr('data-val');
+        localStorage.setItem('selected' + q_counter, selected);
+      });
+      q_counter++;
+    }
+  });
 })();

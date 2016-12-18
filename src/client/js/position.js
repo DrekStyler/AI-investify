@@ -1,22 +1,24 @@
 console.log('position js');
-let searchIndex = "books";
+let searchIndex = 'books';
 let keyWords = [];
 
 $(document).ready(function() {
     $('select').material_select();
-});
+  });
 
-
-
-
-$("button").click(function(e){
+$('button').click(function(e) {
     e.preventDefault();
-    $.ajax({url: "/amazon", success: function(result){
-        console.log("hit");
-    }});
-});
+    $.ajax({url: '/amazon', success: function(result) {
+        console.log('hit');
+      }});
+  });
 
-
+  $('button').click(function(e) {
+      e.preventDefault();
+      $.ajax({url: '/amazon', success: function(result) {
+          console.log('hit');
+        }});
+    });
 
 // http://webservices.amazon.com/onca/xml?
 // Service=AWSECommerceService&
