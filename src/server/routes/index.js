@@ -8,12 +8,13 @@ const SEMANTICS_SECRET = process.env.SEMANTICS_SECRET;
 const sem3 = require('semantics3-node')(SEMANTICS_KEY,SEMANTICS_SECRET);
 
 router.get('/', function (req, res, next) {
-  const renderObject = {};
+  var renderObject = {};
   res.render('index', renderObject);
 });
 
 router.get('/team', function (req, res, next) {
-  const renderObject = {};
+
+  var renderObject = {};
   res.render('team', renderObject);
 });
 
