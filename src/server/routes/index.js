@@ -1,21 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const oauth = require('oauth');
 const request = require('request');
-const format = require('date-format');
-const AWSAccessKeyId = process.env.AWSAccessKeyId;
-const AWSSecretKey = process.env.AWSSecretKey;
 const indexController = require('../controllers/index');
-const crypto = require('crypto-js');
-process.env.TZ = 'Europe/Amsterdam';
-format(new Date());
-let keyWords = "Dog";
-let searchIndex = "Books";
-let date = format('yyyy-MM-ddThh:mm:ssZ', new Date());
-let dateStamp = format('yyyyMMdd', new Date());
-let regionName = 'us-west-2';
-let serviceName = 'AWSECommerceService';
-let kSigning = null;
-
+const SEMANTICS_KEY = process.env.SEMANTICS_KEY;
+const SEMANTICS_SECRET = process.env.SEMANTICS_SECRET;
+const sem3 = require('semantics3-node')(SEMANTICS_KEY,SEMANTICS_SECRET);
 
 router.get('/', function (req, res, next) {
   const renderObject = {};
@@ -33,30 +23,19 @@ router.get('/position', function (req, res, next) {
 });
 
 router.get('/amazon', function (req, res, next) {
-  function getSignatureKey(Crypto, AWSSecretKey, dateStamp, regionName, serviceName) {
-    var kDate = Crypto.HmacSHA256(dateStamp, 'AWS4' + AWSSecretKey);
-    var kRegion = Crypto.HmacSHA256(regionName, kDate);
-    var kService = Crypto.HmacSHA256(serviceName, kRegion);
-    var kSigning = Crypto.HmacSHA256('aws4_request', kService);
-    return kSigning;
-  }
+  let renderObject = {};
+  var endpoint = "products";
+  var method = "GET";
+  var jsonStr = '{"search" : "nike"}';
 
-  const signature = getSignatureKey(crypto, AWSSecretKey, dateStamp, regionName, serviceName);
-  console.log(dateStamp,date);
-  console.log(signature);
-    request(`http://webservices.amazon.com/onca/xml?AWSAccessKeyId=${AWSAccessKeyId}&AssociateTag=derekstyer20-20&Keywords=${keyWords}&Operation=ItemSearch&ResponseGroup=2COffers&SearchIndex=${searchIndex}&Service=AWSECommerceService&Sort=price&Timestamp=${date}&Signature=${signature}`, function (error, response, body) {
-    console.log('body', body);
+  sem3.run_query(endpoint, jsonStr, method, function(err, products) {
+        if (err) {
+            return console.error("Couldn't execute query: get_products");
+          }
+
+      renderObject = products;
+      res.send(renderObject);
+    });
   });
-});
-
-// http://webservices.amazon.com/onca/xml?
-// Service=AWSECommerceService&
-// AWSAccessKeyId=[AWS Access Key ID]&
-// AssociateTag=[Associate ID]&
-// Operation=ItemSearch&
-// Keywords=the%20hunger%20games&
-// SearchIndex=Books
-// &Timestamp=[YYYY-MM-DDThh:mm:ssZ]
-// &Signature=[Request Signature]
 
 module.exports = router;

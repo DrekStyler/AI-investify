@@ -9,16 +9,9 @@ $(document).ready(function() {
 $('button').click(function(e) {
     e.preventDefault();
     $.ajax({url: '/amazon', success: function(result) {
-        console.log('hit');
+        console.log(result);
       }});
   });
-
-  $('button').click(function(e) {
-      e.preventDefault();
-      $.ajax({url: '/amazon', success: function(result) {
-          console.log('hit');
-        }});
-    });
 
 // http://webservices.amazon.com/onca/xml?
 // Service=AWSECommerceService&
