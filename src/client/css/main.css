@@ -94,8 +94,13 @@ p {
 }
 
 .results_disp {
+  text-align: center;
   margin: 0 auto;
-  font-size: 3rem;
+  font-size: 1rem;
+}
+
+.results_disp > * {
+  padding: 10px;
 }
 
 .caret {
