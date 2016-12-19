@@ -56,6 +56,10 @@ $(document).ready(function() {
           data: [selectedGroup, remainingHouseholds]
         }];
       chart.update();
+      $('.holder').append("<button id='changeFunding'>Next Section</button>");
+      $('#changeFunding').click(()=> {
+        window.location = "/funding";
+      });
     });
   });
 
