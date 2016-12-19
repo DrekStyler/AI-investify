@@ -25,15 +25,16 @@ router.get('/position', function (req, res, next) {
 
 router.get('/amazon', function (req, res, next) {
   let renderObject = {};
-  var endpoint = "products";
-  var method = "GET";
-  var jsonStr = '{"search" : "nike"}';
+  let endpoint = "products";
+  let method = "GET";
+  let search_term = req.query.item;
+  let jsonStr = `{"search": "${search_term}"}`;
+    jsonStr = JSON.stringify(jsonStr);
 
   sem3.run_query(endpoint, jsonStr, method, function(err, products) {
         if (err) {
             return console.error("Couldn't execute query: get_products");
           }
-
       renderObject = products;
       res.send(renderObject);
     });
