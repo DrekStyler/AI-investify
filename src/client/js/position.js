@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 $('#find_position').click(function(e) {
     e.preventDefault();
-    $.ajax({url: '/amazon',
+    $.ajax({url: '/semantics',
       data: {item:$('#item_name').val()},
       success: function(result) {
         let results_JSON = JSON.parse(result);
@@ -36,7 +36,7 @@ $('#find_position').click(function(e) {
         $('.results_disp').append("<button id='changeMarket'>Next Section</button>");
 
         localStorage.setItem('pricedCorrectly', pricedCorrectly);
-        
+
         $('#changeMarket').click(function () {
           console.log('hit');
           window.location = "/market";

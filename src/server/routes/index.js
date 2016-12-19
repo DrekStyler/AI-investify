@@ -13,7 +13,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/team', function (req, res, next) {
-
   var renderObject = {};
   res.render('team', renderObject);
 });
@@ -23,7 +22,7 @@ router.get('/position', function (req, res, next) {
   res.render('position', renderObject);
 });
 
-router.get('/amazon', function (req, res, next) {
+router.get('/semantics', function (req, res, next) {
     let renderObject = {};
     let endpoint = "products";
     let method = "GET";
@@ -38,6 +37,11 @@ router.get('/amazon', function (req, res, next) {
       renderObject = products;
       res.send(renderObject);
     });
+  });
+
+  router.get('/market', function (req, res, next) {
+    var renderObject = {};
+    res.render('market', renderObject);
   });
 
 module.exports = router;

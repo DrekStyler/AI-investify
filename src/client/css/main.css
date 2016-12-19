@@ -93,7 +93,11 @@ p {
   min-height: 100px;
 }
 
-#price_div {
+.results_disp {
   margin: 0 auto;
   font-size: 3rem;
+}
+
+.caret {
+  border-color: transparent !important;
 }
