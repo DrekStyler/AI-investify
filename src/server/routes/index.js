@@ -24,11 +24,11 @@ router.get('/position', function (req, res, next) {
 });
 
 router.get('/amazon', function (req, res, next) {
-  let renderObject = {};
-  let endpoint = "products";
-  let method = "GET";
-  let search_term = req.query.item;
-  let jsonStr = `{"search": "${search_term}"}`;
+    let renderObject = {};
+    let endpoint = "products";
+    let method = "GET";
+    let search_term = req.query.item;
+    let jsonStr = `{"search": "${search_term}"}`;
     jsonStr = JSON.stringify(jsonStr);
 
   sem3.run_query(endpoint, jsonStr, method, function(err, products) {
