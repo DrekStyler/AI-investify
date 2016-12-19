@@ -92,3 +92,8 @@ p {
   width: 100%;
   min-height: 100px;
 }
+
+#price_div {
+  margin: 0 auto;
+  font-size: 3rem;
+}
