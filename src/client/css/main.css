@@ -106,3 +106,16 @@ p {
 .caret {
   border-color: transparent !important;
 }
+
+.found {
+  color: green;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.missing {
+  color: gray;
+  opacity: .6;
+  font-size: 2rem;
+  text-align: center;
+}

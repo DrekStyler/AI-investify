@@ -63,14 +63,32 @@ router.get('/semantics', function (req, res, next) {
   });
 
   router.get('/crunchbase', function (req, res, next) {
+    var renderObject = {};
     var api_key_crunch = "&user_key=" + crunchbase_key;
     var obj_key = Object.keys(req.query)[0];
     var query_string = "?name=" + req.query[obj_key];
     var peopleUrl = 'https://api.crunchbase.com/v/3/odm-people';
-      request('GET',peopleUrl + query_string + api_key_crunch).done(function (res) {
-        var parsedBody = JSON.parse(res.body.toString('utf8'));
-        console.log(parsedBody.data.items);
+      request('GET',peopleUrl + query_string + api_key_crunch).then(function (results) {
+        var parsedBody = JSON.parse(results.body.toString('utf8'));
+        renderObject.data = parsedBody.data.items;
+        res.contentType('json');
+        res.status(200).send(renderObject);
       });
-  });
+    });
 
+    router.get('/crunchbase_org', function (req, res, next) {
+      var renderObject = {};
+      var api_key_crunch = "&user_key=" + crunchbase_key;
+      var obj_key = Object.keys(req.query)[0];
+      var query_string = "?name=" + req.query[obj_key];
+      var peopleUrl = 'https://api.crunchbase.com/v/3/odm-organizations';
+        request('GET',peopleUrl + query_string + api_key_crunch).then(function (results) {
+          var parsedBody = JSON.parse(results.body.toString('utf8'));
+          console.log(parsedBody);
+          renderObject.data = parsedBody.data.items;
+          console.log(renderObject);
+          res.contentType('json');
+          res.status(200).send(renderObject);
+        });
+      });
 module.exports = router;

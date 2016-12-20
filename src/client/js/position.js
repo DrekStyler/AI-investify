@@ -17,7 +17,6 @@ $('#find_position').click(function(e) {
       success: function(result) {
         let results_JSON = JSON.parse(result);
         let itemset_JSON = results_JSON.results;
-        console.log(itemset_JSON);
         itemset_JSON.forEach((item) => {
           if(item.price) {
             counter++;
