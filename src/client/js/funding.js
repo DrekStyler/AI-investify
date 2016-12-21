@@ -82,11 +82,11 @@ $('#company_name').change(() => {
 });
 
 function addNavButton () {
-  $('.company_found').append("<button id='changeAwareness'>Next Section</button>");
-  $('#changeAwareness').click((e)=> {
+  $('.company_found').append("<button class='waves-effect waves-light btn-large' id='changeFinal'>Next Section</button>");
+  $('#changeFinal').click((e)=> {
     e.preventDefault();
     console.log('change');
-    window.location = "/awareness";
+    window.location = "/final";
   });
 }
 

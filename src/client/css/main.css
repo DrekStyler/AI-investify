@@ -1,10 +1,24 @@
 body {
   width: 100%;
   height: 100% auto;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Verdana", Helvetica, Arial, sans-serif;
+  background-image: url("/images/mountain.jpeg");
+  background-repeat: no-repeat;
+  background-color: #white;
+  background-size: cover;
+  background-position: center;
 }
 
+* {
+  text-align: center;
+}
+
+form {
+  background-color: white;
+}
 main {
+  width: 80%;
+  background-color: white;
   margin: 0 auto;
   text-align: center;
 }
@@ -22,8 +36,11 @@ header > * {
 }
 
 header {
+  background-color: white;
+  opacity: .9;
   min-height: 100px;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .logo {
@@ -41,6 +58,9 @@ header {
 }
 
 footer {
+  background-color: white;
+  opacity: .8;
+  z-index: 5;
   height: 50px;
   text-align: center;
   position: fixed;
@@ -48,6 +68,7 @@ footer {
   left: 0;
   right: 0;
   padding-bottom: 25px;
+  color: black;
 }
 
 .center {
@@ -74,14 +95,22 @@ footer {
 }
 
 p {
+  margin: 0 auto;
   display: block;
+  width: 50%;
   line-height: 2;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  padding-top: 100px;
+  padding-bottom: 75px;
 }
 
 .header_desc {
-  font-size: 200%;
+  padding-top: 50px;
+  font-size: 180%;
+  vertical-align: top;
+  margin: auto;
+  padding-left: 100px;
 }
 
 #consumer_button,#business_button {
@@ -97,6 +126,8 @@ p {
   text-align: center;
   margin: 0 auto;
   font-size: 1rem;
+  background-color: white;
+  width: 70%;
 }
 
 .results_disp > * {
@@ -117,5 +148,49 @@ p {
   color: gray;
   opacity: .6;
   font-size: 2rem;
+  text-align: center;
+}
+
+canvas {
+  margin: 0 auto;
+  width: 600px;
+  font-size: 1.8rem;
+}
+
+#canvas-holder {
+  margin: 0 auto;
+  width: 60%;
+}
+
+input {
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+button {
+  opacity: 1;
+  margin:0 auto;
+  padding: 10px;
+}
+
+#changeFunding {
+  margin: 0 auto;
+}
+
+.logo {
+  height: 150px;
+  width: 150px;
+  padding-bottom: 50px;
+  float: left;
+}
+
+background {
+  opacity: .2;
+}
+
+label {
+  display: block;
+  line-height: 150%;
   text-align: center;
 }
