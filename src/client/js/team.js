@@ -6,12 +6,12 @@
 
     'In management meetings, which of the two following scenarios best describes the meeting style?  Scenario A: Each memeber talks at length about their particular specialty and the group makes its decision based on the members informed opinion, the meeting is efficient and small talk is limited.  Scenario B: The meeting is filled with small talk and all members have input on issues even if it is not their specialty.',
 
-    'What is my favorite color?'
+    'What is the largest age difference (in years) between founders?'
   ];
   const answers = [
     ['>6 Months','6 Months to a Year', '1 to 3 Years', '3 to 5 Years', '5+ Years'],
     ['Scenario A', 'Scenario B'],
-    ['Blue','Red']
+    ['0-1','1-5','5-10','10+']
   ];
 
   $('#change_question').on('click', ()=> {
