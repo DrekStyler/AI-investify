@@ -3,17 +3,16 @@
 {% block title %}{% endblock %}
 {% block content %}
 {% include "header.html" %}
-<p>Tell us about your company and based on our proprietary algorithm and your online web presence we will give you an investor score and possibly match you with companies looking for businesses like yours!</p>
 <main>
-
   <p>Tell us about your company and based on our proprietary algorithm and your online web presence we will give you an investor score and possibly match you with companies looking for businesses like yours!</p>
     <div class="center">
-        <div class="start">Let's get started! Is your business' primarily marketed towards:</div>
-        <button id="consumer">Consumers</button>
-        <button id="business">Businesses</button>
+        <input type="text" placeholder="Company Name" id="record_name"></input>
+        <div class="start">Let's get started! Is your business's primarily marketed towards:</div>
+        <button class="waves-effect waves-light btn-large" id="consumer">Consumers</button>
+        <button class="waves-effect waves-light btn-large" id="business">Businesses</button>
     </div>
     <div>
-        <button id="other_businesses">See Other Businesses</button>
+        <button class="waves-effect waves-light btn-large" id="other_businesses">See Other Businesses</button>
     </div>
 </main>
  {% include "footer.html" %} {% endblock %}

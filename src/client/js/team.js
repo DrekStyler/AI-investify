@@ -31,7 +31,7 @@
 
       //populate answer elements
       answers[q_counter].forEach((a) => {
-        $('#input_div').append(`<button class="answer_button" data-val="${a}">${a}</button>`);
+        $('#input_div').append(`<button class="waves-effect waves-light btn-large answer_button" data-val="${a}">${a}</button>`);
       });
 
       //save question in localStorage

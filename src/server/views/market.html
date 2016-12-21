@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+{% include "header.html" %}
+<form class="container">
+  <label>What age range is your product marketed towards?</label>
+    <div class="input-field col s4">
+      <select id="target_age" required>
+        <option value="" disabled selected>Choose your option</option>
+        <option>15-24</option>
+        <option>25-34</option>
+        <option>35-44</option>
+        <option>45-54</option>
+        <option>55-64</option>
+        <option>64+</option>
+        <option>Not Age Specific</option>
+      </select>
+  </div>
+  <label>What household income range do your target customers inhabit?</label>
+    <div class="input-field col s4">
+      <select id="target_sal" required>
+        <option value="" disabled selected>Choose your option</option>
+        <option>Less than $50K</option>
+        <option>$50K - $70K</option>
+        <option>$70K - $100K</option>
+        <option>$100K - $200K</option>
+        <option>$200K+</option>
+        <option>Income not important factor</option>
+      </select>
+  </div>
+  <label>Is technological aptitude necessary?</label>
+  <div class="input-field col s4">
+
+    <div class="input-field col s4">
+      <select id="" required>
+        <option value="" disabled selected>Choose your option</option>
+        <option>Yes.</option>
+        <option>No.</option>
+      </select>
+  </div>
+</form>
+<div id="canvas-holder" style="width:40%">
+    <canvas id="chart-area" />
+</div>
+  <div class="holder"></div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/Chart.bundle.js"></script>
+<script src="/js/market.js"></script>
+
+{% include "footer.html" %}
+{% endblock %}
