@@ -32,7 +32,7 @@ $('#find_position').click(function(e) {
         $('.results_disp').append("<div id='price_div'> The average online price is:"+ avg_price + "</div>");
         $('.results_disp').append("<div>" + userMessage(avgPriceInt,user_price) + "</div>");
         $('.results_disp').append("<div id='disp_corr'>" + positionPrice() + "</div>");
-        $('.results_disp').append("<button id='changeMarket'>Next Section</button>");
+        $('.results_disp').append("<button class='waves-effect waves-light btn-large' id='changeMarket'>Next Section</button>");
 
         localStorage.setItem('pricedCorrectly', pricedCorrectly);
 
