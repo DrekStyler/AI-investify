@@ -15,6 +15,7 @@ body {
 
 form {
   background-color: white;
+  border-radius: 10px;
 }
 main {
   width: 80%;
@@ -58,6 +59,7 @@ header {
 }
 
 footer {
+  border-top: gray 2px solid;
   background-color: white;
   opacity: .8;
   z-index: 5;
@@ -101,8 +103,8 @@ p {
   line-height: 2;
   text-align: center;
   font-size: 1.15rem;
-  padding-top: 100px;
-  padding-bottom: 75px;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
 
 .header_desc {
@@ -122,10 +124,13 @@ p {
   min-height: 100px;
 }
 
+.question_label {
+  padding: 20px;
+}
 .results_disp {
   text-align: center;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: white;
   width: 70%;
 }
@@ -155,6 +160,7 @@ canvas {
   margin: 0 auto;
   width: 600px;
   font-size: 1.8rem;
+  background-color: white;
 }
 
 #canvas-holder {
@@ -174,8 +180,9 @@ button {
   padding: 10px;
 }
 
-#changeFunding {
+#changeFunding,#changeFinal {
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .logo {
@@ -193,4 +200,11 @@ label {
   display: block;
   line-height: 150%;
   text-align: center;
+}
+
+#final_score {
+  background-color: white;
+  color: green;
+  font-size: 2rem;
+  padding: 20px;
 }

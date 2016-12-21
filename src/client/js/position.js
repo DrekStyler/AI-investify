@@ -29,14 +29,15 @@ $('#find_position').click(function(e) {
       }}).then((results) => {
         let user_price = $('#item_price').val();
         $('#find_position').remove();
-        $('.results_disp').append("<div id='price_div'>"+ avg_price + "</div>");
+        $('.results_disp').append("<div id='price_div'> The average online price is:"+ avg_price + "</div>");
         $('.results_disp').append("<div>" + userMessage(avgPriceInt,user_price) + "</div>");
-        $('.results_disp').append("<div>" + positionPrice() + "</div>");
+        $('.results_disp').append("<div id='disp_corr'>" + positionPrice() + "</div>");
         $('.results_disp').append("<button id='changeMarket'>Next Section</button>");
 
         localStorage.setItem('pricedCorrectly', pricedCorrectly);
 
-        $('#changeMarket').click(function () {
+        $('#changeMarket').click(function (e) {
+          e.preventDefault();
           console.log('hit');
           window.location = "/market";
         });
@@ -74,9 +75,11 @@ let positionPrice = function () {
     return "Your product is priced at a premium and is consistent with your positoning";
   } else if (position === "Economy" && user_price < avgPriceInt) {
     pricedCorrectly = true;
+    $('#disp_corr').css('color','green');
     return "Your product is priced at a discound and is consistent with your positioning";
   } else {
     pricedCorrectly = false;
+    $('#disp_corr').css('color','red');
     return "Your product is priced inconsistently with your positioning.";
   }
 };

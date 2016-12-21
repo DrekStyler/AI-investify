@@ -8,7 +8,8 @@ console.log(team_score);
 var name = localStorage.getItem('record_name');
 
 $('#final_results').click(function() {
-  console.log('siiiiick');
+  $('#canvas-holder').removeAttr("hidden")
+  $('#canvas-holder').append("<div id='final_score'>"+ name + ":" + total_score  + "%</div>")
   var ctx = document.getElementById("chart-area").getContext('2d');
   var chart = new Chart(ctx, {
     type: 'bar',
