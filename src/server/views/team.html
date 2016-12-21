@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 {% include "footer.html" %} {% endblock %}
+=======
+
+{% extends "_base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+{% include "header.html" %}
+
+>>>>>>> 28c812260ec3d1c20a3f21f667063c7f3174fb23
 <main>
-<div class="question_label">Please answer the following questions</div>
-<div id="question_container"></div>
-<div id="input_div"></div>
-<button id="change_question">Begin</button>
+  <div class="question_label">Please answer the following questions</div>
+  <div id="question_container"></div>
+  <div id="input_div"></div>
+  <button class="waves-effect waves-light btn-large" id="change_question">Begin</button>
 </main>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/team.js"></script>
 {% include "footer.html" %}
 {% endblock %}

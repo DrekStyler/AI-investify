@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+{% include "header.html" %}
+
+<button class="waves-effect waves-light btn-large" id="final_results">Click Button to Show Final Results</button>
+
+
+<div id="canvas-holder" hidden style="width:80%">
+    <canvas id="chart-area" />
+</div>
+<button class="waves-effect waves-light btn-large" id="save">Allow others to see this data</button>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/Chart.bundle.js"></script>
+<script src="/js/final.js"></script>
+{% include "footer.html" %}
+{% endblock %}

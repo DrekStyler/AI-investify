@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+{% include "header.html" %}
+<form class="container">
+  <div class="input-field col s4">
+    <label>What is your product?</label>
+    <input type="text" id="item_name" required></input>
+  </div>
+  <div class="input-field col s4" required>
+    <label>How much will or does your product cost?</label>
+    <input type="number" id="item_price"></input>
+  </div>
+    <label>Is it priced as a luxury good or economically priced?</label>
+  <div class="input-field col s4">
+
+    <select id="item_position" name="position" value="test" required>
+      <option value="" disabled selected>Choose your option</option>
+      <option>Luxury</option>
+      <option>Economy</option>
+    </select>
+
+  </div>
+  <button class="waves-effect waves-light btn-large" id="find_position">Find Online Position</button>
+  <div class="results_disp"></div>
+</form>
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/position.js"></script>
+
+{% include "footer.html" %}
+{% endblock %}
